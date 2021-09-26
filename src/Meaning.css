@@ -15,6 +15,7 @@ h3 {
 }
 .examples {
       font-style: italic;
+      font-size: .9rem;
       font-weight: 300;
       color: var(--accent-color);
 }
