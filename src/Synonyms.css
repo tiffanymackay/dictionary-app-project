@@ -8,7 +8,7 @@ li {
 }
 li:first-child::before {
     content: "Similar: ";
-    font-weight: 600;
+    color: var(--secondary-color);
 }
 li::after {
     content: ", ";
