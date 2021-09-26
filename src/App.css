@@ -54,13 +54,8 @@ footer {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .container-box {
     max-width: 720px;
-  }
-}
-@media (min-width: 576px) {
-  .container-box {
-    max-width: 540px;
   }
 }
