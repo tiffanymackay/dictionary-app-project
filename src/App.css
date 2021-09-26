@@ -1,5 +1,5 @@
 :root {
-  --main-color: #B18FCF;
+  --main-color: #D2BCE1;
   --secondary-color: #9353B2;
   --accent-color: #56555E;
   --text-color: #2C2C34;
@@ -31,7 +31,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--main-color);
+  color: var(--secondary-color);
   
 }
 footer {
@@ -40,24 +40,14 @@ footer {
 }
 
 /*Responsive Styles */
-@media (min-width: 1400px) {
+@media (max-width: 400px) {
   .container-box {
-    max-width: 1140px;
+    max-width: 90%;
   }
-}
-@media (min-width: 1200px) {
-  .container-box {
-    max-width: 1320px;
+  form div {
+    flex-wrap: wrap;
   }
-}
-@media (min-width: 990px) {
-  .container-box {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 700px) {
-  .container-box {
-    max-width: 720px;
+  .mx-1 {
+    margin: 5px 0px 0px 0px !important;
   }
 }

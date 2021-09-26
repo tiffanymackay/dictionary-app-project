@@ -1,23 +1,23 @@
-:root {
-    --main-color: #B18FCF;
-    --secondary-color: #9353B2;
-    --accent-color: #56555E;
-    --text-color: #2C2C34;
-  }
+
 h1 {
     font-family: 'Open Sans', sans-serif !important;
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 h2 {
     font-family: 'Open Sans', sans-serif !important;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: 700;
 }
 .btn {
-    background-color: var(--accent-color) !important;
-    color: #fff !important;
+    background-color: var(--main-color) !important;
+    color: #000 !important;
 }
 .btn:hover {
-    background-color: var(--text-color) !important;
+    background-color: #fff !important;
+    border: 1px solid var(--main-color) !important;
+    color: var(--secondary-color) !important;
 }
 .suggestions {
     font-style: italic;

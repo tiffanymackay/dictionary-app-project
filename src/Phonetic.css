@@ -1,0 +1,8 @@
+.phonetic-text {
+    font-weight: 500;
+}
+.phonetic audio {
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    padding: 10px 10px;
+}
