@@ -16,17 +16,19 @@ body {
 
 .container-box {
   background-color: #fff;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
   border-radius: 5px;
   max-width: 80%;
   margin: 10px auto;
-  padding: 10px 20px;
+  padding: 20px 30px;
 }
 .App {
   text-align: center;
 }
 .App-logo {
-  height: 80px;
+  height: 100px;
 }
+
 a {
   text-decoration: none;
   color: var(--main-color);
