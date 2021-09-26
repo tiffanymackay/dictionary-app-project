@@ -18,7 +18,7 @@ body {
   background-color: #fff;
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
   border-radius: 5px;
-  max-width: 80%;
+  max-width: 90%;
   margin: 15px auto;
   padding: 20px 30px;
 }
@@ -42,6 +42,11 @@ footer {
 }
 
 /*Responsive Styles */
+@media (min-width: 1300px) {
+  .container-box {
+  max-width: 900px
+  }
+}
 @media (max-width: 400px) {
   .container-box {
     max-width: 90%;
