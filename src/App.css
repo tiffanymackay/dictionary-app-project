@@ -1,18 +1,65 @@
+:root {
+  --main-color: #B18FCF;
+  --secondary-color: #D8D8F6;
+  --accent-color: #494850;
+  --text-color: #2C2C34;
+
+}
 html {
   height: 100%;
+  color: var(--text-color);
 }
 body {
-  background: radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
+  background: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
 }
-header {
-  background-color: #fff;
-  border-radius: 10px;
 
+.container-box {
+  background-color: #fff;
+  border-radius: 5px;
+  max-width: 80%;
+  margin: 10px auto;
+  padding: 10px 20px;
 }
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 80px;
+}
+a {
+  text-decoration: none;
+  color: var(--main-color);
+  
+}
+footer {
+  display: block;
+  text-align: center;
+}
+
+/*Responsive Styles */
+@media (min-width: 1400px) {
+  .container-box {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-box {
+    max-width: 1320px;
+  }
+}
+@media (min-width: 990px) {
+  .container-box {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-box {
+    max-width: 720px;
+  }
+}
+@media (min-width: 576px) {
+  .container-box {
+    max-width: 540px;
+  }
 }
