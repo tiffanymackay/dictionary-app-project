@@ -18,6 +18,7 @@ h2 {
 }
 .suggestions {
     font-style: italic;
+    font-size: .8rem;
     color: var(--accent-color);
     padding-top: 5px;
 }
