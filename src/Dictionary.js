@@ -14,7 +14,7 @@ export default function Dictionary() {
 
     return (
     <div className="Dictionary container-box">  
-    <h1>Word lookup</h1>        
+        <h1>Word lookup</h1>        
         <form onSubmit={search}>
             <div className="d-flex">
                 <div className="flex-grow-1">
@@ -25,6 +25,7 @@ export default function Dictionary() {
                 </div>
             </div>
         </form>
+        <div className="suggestions">Such as: nature, fashion, interiors </div>
   
     </div>
         );
