@@ -12,6 +12,10 @@ h1 {
 h2 {
     font-family: 'Open Sans', sans-serif !important;
 }
+.btn {
+    background-color: var(--accent-color) !important;
+    color: #fff;
+}
 .suggestions {
     font-style: italic;
     color: var(--accent-color);

@@ -21,7 +21,7 @@ export default function Dictionary() {
                     <input onChange={handleKeywordChange} type="search" placeholder="Search" autoFocus={true} className="form-control" /> 
                 </div>
                 <div className="mx-1">
-                    <button value="Search" className="btn btn-secondary mx-1 px-3" type="submit">Search</button>
+                    <button value="Search" className="btn mx-1 px-3" type="submit">Search</button>
                 </div>
             </div>
         </form>
