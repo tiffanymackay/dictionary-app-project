@@ -7,10 +7,11 @@
 }
 html {
   height: 100%;
-  color: var(--text-color);
 }
 body {
   background: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+  font-family: 'Montserrat', sans-serif !important;
+  color: var(--text-color);
 }
 
 .container-box {
