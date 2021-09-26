@@ -26,7 +26,7 @@ body {
   text-align: center;
 }
 .App-logo {
-  height: 100px;
+  height: 200px;
 }
 
 a {
@@ -50,6 +50,9 @@ footer {
 @media (max-width: 400px) {
   .container-box {
     max-width: 90%;
+  }
+  .App-logo {
+    height: 150px;
   }
   form div {
     flex-wrap: wrap;
