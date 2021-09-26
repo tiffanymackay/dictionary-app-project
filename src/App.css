@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+  background: radial-gradient(circle at 10% 20%, rgb(242, 235, 243) 0%, rgb(234, 241, 249) 90.1%);
   font-family: 'Montserrat', sans-serif !important;
   color: var(--text-color);
   background-size: cover;
@@ -26,7 +26,7 @@ body {
   text-align: center;
 }
 .App-logo {
-  height: 200px;
+  height: 150px;
 }
 
 a {
@@ -53,7 +53,7 @@ footer {
     max-width: 90%;
   }
   .App-logo {
-    height: 150px;
+    height: 100px;
   }
   form div {
     flex-wrap: wrap;
