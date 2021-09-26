@@ -5,6 +5,11 @@ h3 {
     color: var(--secondary-color);
 
 }
+.phonetic-text {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
 .examples {
       font-style: italic;
       color: var(--accent-color);
