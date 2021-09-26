@@ -3,7 +3,6 @@ import Phonetic from "./Phonetic";
 import Meaning from "./Meaning";
 
 export default function Results(props) {
-    console.log(props.results);
 
     if (props.results) {
           return (
