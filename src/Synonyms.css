@@ -6,3 +6,13 @@ li {
     list-style-type: none;
     color: var(--accent-color);
 }
+li:first-child::before {
+    content: "Similar: ";
+    font-weight: 600;
+}
+li::after {
+    content: ", ";
+}
+li:last-child::after {
+    content: "";
+}

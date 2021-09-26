@@ -13,7 +13,7 @@ function App() {
       <main>
         <Dictionary />
       </main>
-      <footer className="container-box">
+      <footer>
         This website is designed and coded by UX Web and Brand Designer <a href="https://www.linkedin.com/in/tiffanylmackay/" target="_blank" rel="noreferrer">Tiffany Mackay</a>, and is <a href="https://github.com/tiffanymackay/dictionary-app-project" target="_blank" rel="noreferrer">open-sourced</a>.
         <br />
       </footer>

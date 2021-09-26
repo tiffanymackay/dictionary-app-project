@@ -10,7 +10,11 @@ h3 {
     font-size: 1.2rem;
     color: var(--accent-color);
 }
+.definition {
+    font-weight: 400;
+}
 .examples {
       font-style: italic;
+      font-weight: 300;
       color: var(--accent-color);
 }

@@ -19,7 +19,7 @@ body {
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
   border-radius: 5px;
   max-width: 80%;
-  margin: 10px auto;
+  margin: 15px auto;
   padding: 20px 30px;
 }
 .App {
@@ -30,12 +30,14 @@ body {
 }
 
 a {
-  text-decoration: none;
   color: var(--secondary-color);
   
 }
 footer {
   display: block;
+  font-size: .9rem;
+  max-width: 80%;
+  margin: 0 auto;
   text-align: center;
 }
 
