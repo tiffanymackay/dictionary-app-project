@@ -4,12 +4,10 @@
     --accent-color: #56555E;
     --text-color: #2C2C34;
 }
-h3 {
-    font-size: 1rem;
-    font-weight: 600;
-
+ul {
+    padding: 0px;
 }
-.examples {
-      font-style: italic;
-      color: var(--accent-color);
+li {
+    list-style-type: none;
+    color: var(--accent-color);
 }
