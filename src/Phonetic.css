@@ -1,6 +1,7 @@
 
 .phonetic audio {
-    border: 1px solid var(--main-color);
+    margin-left: 0px;
     border-radius: 5px;
-    padding: 10px 10px;
+    padding-left: 0px;
+
 }
