@@ -15,20 +15,24 @@ export default function Results(props) {
             {props.results.phonetic}
             </p>
                 {props.results.phonetics.map(function(phonetic, index) {
+                    if (index  < 1) {
                     return (
                         <div key={index}>
                             <Phonetic phonetic={phonetic} />
                         </div>
                     );
+                    } else {
+                        return null;
+                    }
                 })}
         </div>
-    {props.results.meanings.map(function(meaning, index) {
-        return (
-            <div key={index}>
-                <Meaning meaning={meaning} />
-            </div>
-        );
-    })}
+        {props.results.meanings.map(function(meaning, index) {
+            return (
+                <div key={index}>
+                    <Meaning meaning={meaning} />
+                </div>
+            );
+        })}
     </div>
     );
     } else {
