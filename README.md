@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Wordwell
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Wordwell is a responsive dictionary workspace for finding, understanding, and keeping useful words. It combines editorial typography with practical discovery tools: accessible autocomplete, pronunciation, exact rhymes, word meter, related words, saved words, and search history.
 
-## Available Scripts
+![Wordwell social preview](public/og.png)
 
-In the project directory, you can run:
+## The product challenge
 
-### `npm start`
+The original dictionary app successfully demonstrated React fundamentals, but its experience was limited to a search field and stacked definition cards. It had no loading or error feedback, invalid searches left stale results on screen, its image API was broken, and the mobile layout did not use the available viewport effectively.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The v2 redesign treats word lookup as a small but complete product:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Find:** fast lookup with keyboard-operable autocomplete and shareable URLs.
+- **Understand:** clear pronunciation, part-of-speech sections, examples, synonyms, and antonyms.
+- **Explore:** Datamuse-powered related words and spelling recovery.
+- **Write:** exact rhymes grouped with syllable counts and stress patterns for poetry, lyrics, and children's books.
+- **Keep:** saved words and recent searches stored privately on the current device.
+- **Recover:** purpose-built loading, not-found, partial-data, and network-error states.
 
-### `npm test`
+## Design decisions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- A warm editorial visual system makes the experience feel like a contemporary reference tool rather than an admin template.
+- Desktop uses a definition-and-sidebar workspace; tablet and mobile progressively collapse to one column.
+- The primary search action remains visible and comfortably tappable at every breakpoint.
+- Photos were removed because they added latency and visual noise without consistently improving comprehension.
+- All optional Datamuse requests fail independently, so a related-word outage never blocks the core definition.
 
-### `npm run build`
+## Accessibility
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Semantic search, article, section, aside, and footer landmarks
+- Persistent input label and ARIA combobox relationships
+- Arrow-key, Enter, and Escape support for autocomplete
+- Live loading and result announcements
+- Visible focus styles and touch-friendly controls
+- Reduced-motion support
+- Text alternatives for icon-only actions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Data sources
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Free Dictionary API](https://dictionaryapi.dev/) supplies definitions, phonetics, pronunciation audio, and source links.
+- [Datamuse](https://www.datamuse.com/api/) supplies autocomplete, spelling suggestions, synonyms, and antonyms.
 
-### `npm run eject`
+Neither integration requires a client-side secret. API access is isolated in `src/services/dictionaryApi.js` so another provider can be introduced without rewriting the interface.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React 19
+- Vite
+- Vitest and Testing Library
+- Lucide icons
+- CSS custom properties and native responsive layout
+- Browser `localStorage` for device-local saved words and history
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Run locally
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm install
+npm start
+```
 
-## Learn More
+Run the test suite and production build:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm test
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Product roadmap
 
-### Code Splitting
+- Optional account sync for saved collections
+- Word-of-the-day learning mode
+- Usage notes and etymology through an authoritative licensed provider
+- Installable offline shell with cached recent entries
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Designed and built by [Tiffany Mackay](https://www.linkedin.com/in/tiffanylmackay/). The project is shared for portfolio and educational use.

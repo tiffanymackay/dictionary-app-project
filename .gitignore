@@ -10,6 +10,10 @@
 
 # production
 /build
+/dist
+
+# Vite
+/.vite
 
 # misc
 .DS_Store
