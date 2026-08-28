@@ -1,9 +1,10 @@
-const DICTIONARY_ENDPOINT = import.meta.env.DEV
+const IS_DEVELOPMENT = import.meta.env.DEV;
+const DICTIONARY_ENDPOINT = IS_DEVELOPMENT
   ? "/dictionary-api/api/v2/entries/en"
-  : "https://api.dictionaryapi.dev/api/v2/entries/en";
-const DATAMUSE_ENDPOINT = import.meta.env.DEV
+  : "/.netlify/functions/dictionary";
+const DATAMUSE_ENDPOINT = IS_DEVELOPMENT
   ? "/datamuse-api"
-  : "https://api.datamuse.com";
+  : "/.netlify/functions/datamuse";
 
 export class WordNotFoundError extends Error {
   constructor(word) {
@@ -18,8 +19,23 @@ async function requestJson(url, options = {}) {
   return response.json();
 }
 
+function getDictionaryUrl(word) {
+  const encodedWord = encodeURIComponent(word);
+  return IS_DEVELOPMENT
+    ? `${DICTIONARY_ENDPOINT}/${encodedWord}`
+    : `${DICTIONARY_ENDPOINT}?word=${encodedWord}`;
+}
+
+function getDatamuseUrl(resource, params) {
+  if (IS_DEVELOPMENT) return `${DATAMUSE_ENDPOINT}/${resource}?${params}`;
+
+  const functionParams = new URLSearchParams(params);
+  functionParams.set("resource", resource);
+  return `${DATAMUSE_ENDPOINT}?${functionParams}`;
+}
+
 export async function getDictionaryEntry(word, { signal } = {}) {
-  const response = await fetch(`${DICTIONARY_ENDPOINT}/${encodeURIComponent(word)}`, { signal });
+  const response = await fetch(getDictionaryUrl(word), { signal });
   if (response.status === 404) throw new WordNotFoundError(word);
   if (!response.ok) throw new Error(`Dictionary request failed with ${response.status}`);
 
@@ -30,14 +46,14 @@ export async function getDictionaryEntry(word, { signal } = {}) {
 export async function getSuggestions(query, { signal, max = 6 } = {}) {
   if (query.trim().length < 2) return [];
   const params = new URLSearchParams({ s: query.trim(), max: String(max) });
-  const data = await requestJson(`${DATAMUSE_ENDPOINT}/sug?${params}`, { signal });
+  const data = await requestJson(getDatamuseUrl("sug", params), { signal });
   return data.map(({ word }) => word);
 }
 
 export async function getWordConnections(word, { signal } = {}) {
   const makeUrl = (relationship) => {
     const params = new URLSearchParams({ [relationship]: word, max: "8" });
-    return `${DATAMUSE_ENDPOINT}/words?${params}`;
+    return getDatamuseUrl("words", params);
   };
 
   const [synonyms, antonyms] = await Promise.all([
@@ -74,8 +90,8 @@ export async function getWriterTools(word, { signal } = {}) {
   const rhymeParams = new URLSearchParams({ rel_rhy: word, md: "sr", max: "32" });
   const meterParams = new URLSearchParams({ sp: word, qe: "sp", md: "sr", max: "1" });
   const [rhymeData, meterData] = await Promise.all([
-    requestJson(`${DATAMUSE_ENDPOINT}/words?${rhymeParams}`, { signal }),
-    requestJson(`${DATAMUSE_ENDPOINT}/words?${meterParams}`, { signal }),
+    requestJson(getDatamuseUrl("words", rhymeParams), { signal }),
+    requestJson(getDatamuseUrl("words", meterParams), { signal }),
   ]);
 
   const meter = meterData.find((item) => item.word.toLowerCase() === word.toLowerCase()) || meterData[0];
